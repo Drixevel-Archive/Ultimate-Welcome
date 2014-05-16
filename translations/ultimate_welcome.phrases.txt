@@ -1,0 +1,8 @@
+"Phrases"
+{
+	"Welcome"
+	{
+		"#format"	"{1:N}"	//use {1} to specify the name.
+		"en"		"Welcome to this server."
+	}
+}
