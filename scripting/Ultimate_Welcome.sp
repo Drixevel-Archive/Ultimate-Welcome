@@ -8,7 +8,7 @@
 
 #define PLUGIN_NAME     "[ANY] Ultimate Welcome"
 #define PLUGIN_AUTHOR   "Keith Warren(Jack of Designs)"
-#define PLUGIN_VERSION  "1.0.0"
+#define PLUGIN_VERSION  "1.0.1"
 #define PLUGIN_DESCRIPTION	"Allows server operators to welcome guests with a variety of methods."
 #define PLUGIN_CONTACT  "http://www.jackofdesigns.com/"
 
@@ -66,8 +66,11 @@ public OnMapStart()
 	GetConVarString(ConVars[5], cv_Sound, sizeof(cv_Sound));
 	Format(sBuffer, sizeof(sBuffer), "sound/%s", cv_Sound);
 	
-	PrecacheSound(cv_Sound);
-	AddFileToDownloadsTable(sBuffer);
+	if (!StrEqual(cv_Sound, ""))
+	{
+		PrecacheSound(cv_Sound);
+		AddFileToDownloadsTable(sBuffer);
+	}
 }
 
 public HandleCvars (Handle:cvar, const String:oldValue[], const String:newValue[])
